@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Northwestern Libraries Local Electronic Resources</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-797260-37"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-797260-37');
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="top-bar container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="logo col-3">
+            <img alt="Northwestern University" src="https://common.northwestern.edu/v8/css/images/northwestern.svg">
+          </div>
+          <div class="links col-9">
+            <ul class="float-right">
+              <li><a href="https://www.library.northwestern.edu/visit/hours/index.html"><img src="/images/clock.svg" alt="hours" width="12px">Hours</a></li>
+              <li><a href="https://www.library.northwestern.edu/research/ask-us/index.html"><img src="/images/chat.svg" alt="chat" width="12px">Ask Us</a></li>
+              <li><a href="https://search.library.northwestern.edu/primo-explore/account?vid=NULVNEW&lang=en_US"><img src="/images/user.svg" alt="your account" width="12px">Your Account</a></li>
+              <li><a href="https://www.library.northwestern.edu/about/support/index.html"><img src="/images/present.svg" alt="support us" width="12px">Support Us</a></li>
+              <li>Information for <img src="/images/arrow.png" alt="more info for">
+                <ul>
+                  <li><a href="https://www.library.northwestern.edu/undergraduate.html">Undergraduate students</a></li>
+                  <li><a href="https://www.library.northwestern.edu/graduate.html">Graduate students</a></li> 
+                  <li><a href="https://www.library.northwestern.edu/faculty-staff/index.html">Faculty & staff</a></li>
+                  <li><a href="https://www.library.northwestern.edu/alumni-visitors.html">Alumni & visitors</a></li>
+                </ul>
+                            </li>
+            </ul>
+          </div>
+                    <div class="mobile-menu col-8">
+                        <ul class="mobile-links">
+                            <li><img class="mobile-menu-icon" src="https://common.northwestern.edu/v8/css/images/icons/hamburger.svg">
+                                <ul>
+                                    <li><a href="https://www.library.northwestern.edu/visit/hours/index.html">Hours</a></li>
+                                    <li><a href="https://www.library.northwestern.edu/research/ask-us/index.html">Ask Us</a></li>
+                                    <li><a href="https://search.library.northwestern.edu/primo-explore/account?vid=NULVNEW&lang=en_US">Your Account</a></li>
+                                    <li><a href="https://www.library.northwestern.edu/about/support/index.html">Support Us</a></li>
+                                    <li><a href="https://www.library.northwestern.edu/undergraduate.html">Undergraduate students</a></li>
+                                    <li><a href="https://www.library.northwestern.edu/graduate.html">Graduate students</a></li> 
+                                    <li><a href="https://www.library.northwestern.edu/faculty-staff/index.html">Faculty & staff</a></li>
+                                    <li><a href="https://www.library.northwestern.edu/alumni-visitors.html">Alumni & visitors</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar container-fluid">
+      <div class="department container">
+        <div class="row">
+          <div class="col">
+            <h2>
+              <a href="https://www.library.northwestern.edu/">LIBRARIES</a>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+      <% if(error && error.length > 0){ %>
+          <div class="alert alert-danger" role="alert">
+              <%= error %>
+          </div>
+      <% } %>
+      <% if(success && success.length > 0){ %>
+          <div class="alert alert-success" role="alert">
+              <%= success %>
+          </div>
+      <% } %>
+  </div>

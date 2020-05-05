@@ -1,0 +1,329 @@
+body {
+    color: #342f2e;
+    font: 80%/1.7em Arial,sans-serif;
+}
+
+ul { 
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+p {
+    font-size: 1.25em;
+}
+
+.top-bar {
+	background: #401F68;
+	min-height: 60px;
+}
+
+.logo img {
+	width: 170px;
+	margin: 1.1rem 0 1rem 0;
+}
+
+.links ul {
+	margin: 0;
+	line-height: 50px;
+}
+
+.links ul li {
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	padding-left: 1rem;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.links > ul li:hover {
+	z-index: 100;
+}
+
+.links > ul ul {
+	position: absolute;
+	top: 100%;
+	width: 155px;
+	background: #401f68;
+	padding: .5rem;
+	text-align: right;
+	z-index: -100;
+    line-height: 10px;
+}
+
+
+.links > ul li:hover ul {
+	z-index: 100;
+}
+
+.links > ul ul li {
+    float: none;
+    padding: 0 0 .5rem 0;
+    width: 100%;
+    margin: 0;
+    display: inline-block;
+    line-height: 1.2em;
+    height: inherit;
+}
+
+.links ul a {
+	color: white;
+	text-decoration: none;
+	position: relative;
+}
+
+.links img {
+	margin-right: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+
+.bottom-bar {
+	background: #4E2A84;
+}
+
+.department {
+	min-height: 112px;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.department a {
+	color: white;
+	text-decoration: none;
+}
+
+.content {
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.img-overlay-wrap {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+}
+
+.img-overlay-wrap img { /* <= optional, for responsiveness */
+   display: block;
+   max-width: 100%;
+   height: auto;
+}
+
+.img-overlay-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.key {
+    background: #e4e0ee;
+    padding: .5rem 1rem;
+}
+.key h4 {
+   text-align: center; 
+}
+
+.key ul li {
+    padding-left: 2.1rem;
+    padding-bottom: 1rem;
+    font-size: 1.15em;
+}
+
+.nusearch-station ul li {
+    background: url("/images/nucats-station.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+}
+
+.check-out {
+    background: url("/images/check-out-location.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+}
+    
+.target {
+    background: url("/images/target.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+}
+
+.ask-us {
+    background: url("/images/ask-us.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+    }
+    
+.computer-lab {
+    background: url("/images/computer-lab.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+}
+
+.scanner {
+    background: url("/images/scanner.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+}
+
+.nusearch-station {
+    background: url("/images/nusearch-station.svg") no-repeat left center/27px 27px;
+    padding-top: 0.6rem;
+}
+
+.error-message {
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+
+footer {
+	background: #4E2A84;
+	color: white;
+	padding: 3rem 0;
+	font-size: 12px;
+}
+
+footer a {
+	color: white;
+	text-decoration: underline;
+}
+
+footer a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+.footer-content {
+    margin-right: 5.15464%;
+}
+
+
+.footer-content:nth-of-type(1) img:not(.png) {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.footer-content ul li {
+    padding-bottom: .8rem;
+}
+
+.footer-content.contact img {
+	position: absolute;
+	top: 13px;
+	left: -2rem;
+}
+
+.footer-content.contact ul {
+    margin: 0 0 1rem 2rem;
+    position: relative;
+}
+
+.social {
+    display: inline-block;
+    margin: 4px;
+    width: 39px;
+    height: 39px;
+    background-color: #fff;
+    transition:all 0.3s ease 0s;
+    border: 1px solid #fff;
+}
+
+.social:hover {
+    background-color: #b6acd1;
+}
+
+.facebook {
+    background: url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
+	background-position: 0 0;
+}
+
+.facebook:hover {
+	background-position: 0 -39px;
+}
+
+.twitter {
+     background-image:url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
+     background-position:-39px 0
+}
+
+.twitter:hover {
+    background-position:-39px 39px
+}
+
+.instagram {
+    background-image:url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
+    background-position:-78px 0
+}
+
+.instagram:hover {
+    background-position:-78px 39px
+}
+
+.youtube {
+    background-image:url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
+    background-position:-156px 0
+}
+
+.youtube:hover {
+     background-position:-156px 39px
+}
+
+.wordpress {
+    background-image:url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
+    background-position:-234px 0
+}
+
+.wordpress:hover {
+    background-position:-234px 39px
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 1000px){
+    .links {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: inline-block;
+    }
+    
+    .mobile-menu-icon {
+        display: inline-block;
+        padding: 1em;
+        height: 55px;
+        width: 55px;
+        cursor: pointer;
+        float: right;
+    }
+    
+    .mobile-menu ul ul {
+        display: none;
+    }
+    
+    .mobile-menu > ul li:hover ul {
+        display: inline-block;
+        top: 100%;
+        width: 100%;
+        background: #401f68;
+        text-align: right;
+        line-height: 10px;
+        text-transform: uppercase;
+        padding: 1em;
+    }
+    
+    .mobile-menu > ul ul li {
+        padding: 0 0 1rem 0;
+        width: 100%;
+    }
+    
+    .mobile-menu a {
+        color: #fff;
+    }
+}

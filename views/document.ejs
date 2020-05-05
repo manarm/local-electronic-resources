@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+<!-- Bootstrap for width / centering -->
+<div class="container-fluid">
+<div class="container">
+
+<br />
+<h1> <%= display.title %> </h1>
+<br />
+
+<%if (display.note.length > 0) { %>
+	<p align="center"><%= display.note %></p>
+<% } %>
+<% include partials/restriction_note %>
+
+<!-- Render document-specific HTML fetched from Gimli -->
+<%- display.data %>
+<br />
+<br />
+
+</div>
+</div>
+
+<% include partials/footer %>
