@@ -1,0 +1,2 @@
+Title	ISSN/ISBN/ID	Style (csv or html)	Internal Resource Path (include prefix /)	Public Note	Private Note
+Weekly Railroad Traffic	1048-7662	html	/ej/restricted/weeklyrrtraffic/index_bare.html	Public Note Displays Here	
