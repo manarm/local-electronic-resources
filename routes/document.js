@@ -1,3 +1,12 @@
+/*
+* Router for displaying document pages. 
+*
+* Given a URL that ends in /document/id, consults table at 
+* data/document_pages.txt and searches for id. 
+* If info is found in the table, it will issue a GET request for the resource's
+* HTML and instantiate the template at views/document.ejs
+*/
+
 const express = require('express'),
       router = express.Router(),
       https = require('https');

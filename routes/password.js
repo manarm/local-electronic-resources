@@ -1,3 +1,12 @@
+/*
+* Router for displaying password pages. 
+*
+* Given a URL that ends in /password/id, consults table at 
+* data/password_pages.txt and searches for id. 
+* If info is found in the table instantiates template at 
+* views/password.ejs.
+*/
+
 const express = require('express'),
       router = express.Router(),
       fs = require('fs');
