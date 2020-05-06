@@ -11,13 +11,13 @@ const indexRouter = require('./routes/index'),
       documentRouter = require('./routes/document'),
       passwordRouter = require('./routes/password');
 
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Flash middleware used for Bootstrap alerts.
 // Requires session.
@@ -49,4 +49,25 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+// Get address:port from env and start listening.
+// Defaults to localhost:3000 if not present in env.
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+var port = normalizePort(process.env.PORT || '3000');
+var address = (process.env.IP || '127.0.0.1');
+app.listen(port, address, function() {
+  console.log('Listening at ' + address + ':' + port);
+});
