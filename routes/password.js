@@ -27,24 +27,27 @@ router.get('/password/:id', function(req, res, next) {
     // See data/password_pages.txt for field definitions.
     var lines = data.split('\n');
     lines.shift(); // remove header
-    var found = false;
-    var fields;
-    for(var i = 0; i < lines.length && !found; i++) {
-      fields = lines[i].split('\t');
+    var display = { accounts: [] };
+    for(var i = 0; i < lines.length; i++) {
+      const fields = lines[i].split('\t');
       if (fields[1] === req.params.id) {
-        found = true;
+        // Check for presence of singly-defined fields (title, URL, note).
+        // Only store the first value found.
+        if(!display.hasOwnProperty('title') && fields[0].length > 0) {
+          display.title = fields[0];
+        }
+        if(!display.hasOwnProperty('url') && fields[4].length > 0) {
+          display.url = fields[4];
+        }
+        if(!display.hasOwnProperty('note') && fields[5].length > 0) {
+          display.note = fields[5];
+        }
+        // Store username/password combos (may be multiple)
+        display.accounts.push({username: fields[2], password: fields[3]});
       }
     }
 
-    if(found) {
-      // Pull out info and pass to template.
-      const display = {
-        title : fields[0],
-        username : fields[2],
-        password : fields[3],
-        url : fields[4],
-        note : fields[5]
-      }
+    if(display.hasOwnProperty('url')) {
       res.render('password', {display: display});
     } else {
       res.render('resource_missing', {id: req.params.id});
