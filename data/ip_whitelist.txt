@@ -1,0 +1,4 @@
+# IP whitelist for password pages. 
+# Lines preceeded by a "#" will be treated as comments and ignored.
+# TODO: currently set up for local access only.
+127.0.0.1

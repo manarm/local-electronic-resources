@@ -7,9 +7,9 @@ const express = require('express'),
       flash = require('connect-flash'),
       session = require('express-session');
       fs = require('fs');
-const indexRouter = require('./routes/index'),
-      documentRouter = require('./routes/document'),
-      passwordRouter = require('./routes/password');
+//const indexRouter = require('./routes/index'),
+//      documentRouter = require('./routes/document'),
+//      passwordRouter = require('./routes/password');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -32,27 +32,10 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// Middleware to restrict IPs allowed to access password pages.
-app.use('/password/*', function(req, res, next) {
-  var ip = req.ip || 
-          req.headers['x-forwarded-for'] || 
-          req.connection.remoteAddress || 
-          req.socket.remoteAddress ||
-          req.connection.socket.remoteAddress;
-
-  // TODO what IPs are whitelisted?
-  if (ip == '127.0.0.1') {
-    next();
-  } else {
-    // TODO: create "no access" page w. ezproxy link
-    res.end();
-  }
-});
-
 // Mount routers.
-app.use('/', indexRouter);
-app.use('/', documentRouter);
-app.use('/', passwordRouter);
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/document'));
+app.use('/', require('./routes/password'));
 
 // Error handling.
 app.use(function(req, res, next) {

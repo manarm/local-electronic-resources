@@ -5,11 +5,35 @@
 * data/password_pages.txt and searches for id. 
 * If info is found in the table instantiates template at 
 * views/password.ejs.
+*
+* Also checks user IP to make sure it exists in data/ip_whitelist.txt.
 */
 
 const express = require('express'),
       router = express.Router(),
       fs = require('fs');
+
+// Middleware to restrict IPs.
+const data = fs.readFileSync('data/ip_whitelist.txt', 'utf-8');
+const whitelist = data.split('\n')
+  .map(line => line.trim())
+  .filter(line => line && line.substring(0,1) != '#');
+console.log(whitelist);
+router.get('/password/*', function(req, res, next) {
+  var ip = req.ip || 
+          req.headers['x-forwarded-for'] || 
+          req.connection.remoteAddress || 
+          req.socket.remoteAddress ||
+          req.connection.socket.remoteAddress;
+  console.log("Checking for IP " + ip);
+  if (whitelist.includes(ip)) {
+    console.log("IP found.");
+    next();
+  } else {
+    // TODO: create "no access" page w. ezproxy link
+    res.end();
+  }
+});
 
 router.get('/password/:id', function(req, res, next) {
   // Read in tab-delimited text
