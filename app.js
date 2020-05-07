@@ -32,6 +32,23 @@ app.use(function(req, res, next) {
 	next();
 });
 
+// Middleware to restrict IPs allowed to access password pages.
+app.use('/password/*', function(req, res, next) {
+  var ip = req.ip || 
+          req.headers['x-forwarded-for'] || 
+          req.connection.remoteAddress || 
+          req.socket.remoteAddress ||
+          req.connection.socket.remoteAddress;
+
+  // TODO what IPs are whitelisted?
+  if (ip == '127.0.0.1') {
+    next();
+  } else {
+    // TODO: create "no access" page w. ezproxy link
+    res.end();
+  }
+});
+
 // Mount routers.
 app.use('/', indexRouter);
 app.use('/', documentRouter);
