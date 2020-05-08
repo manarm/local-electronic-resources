@@ -16,6 +16,10 @@ p {
     font-size: 1.25em;
 }
 
+hr {
+    background-color: black;
+}
+
 .top-bar {
 	background: #401F68;
 	min-height: 60px;

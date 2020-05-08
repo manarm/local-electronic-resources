@@ -13,6 +13,19 @@ const express = require('express'),
       router = express.Router(),
       fs = require('fs');
 
+// Field definitions for columns in data spreadsheet.
+const fieldDefs = {
+  title: 0,
+  id: 1,
+  username: 2,
+  password: 3,
+  customName: 4,
+  customValue: 5,
+  url: 6,
+  publicNote: 7,
+  privateNote: 8
+}
+
 router.get('/password/:id', function(req, res, next) {
   // Read in tab-delimited text
   fs.readFile('data/password_pages.txt', 'utf-8', function(err, data) {
@@ -27,23 +40,32 @@ router.get('/password/:id', function(req, res, next) {
     // See data/password_pages.txt for field definitions.
     var lines = data.split('\n');
     lines.shift(); // remove header
-    var display = { accounts: [] };
+    var display = { accounts: [], customFields: [] };
     for(var i = 0; i < lines.length; i++) {
       const fields = lines[i].split('\t');
       if (fields[1] === req.params.id) {
         // Check for presence of singly-defined fields (title, URL, note).
         // Only store the first value found.
-        if(!display.hasOwnProperty('title') && fields[0].length > 0) {
-          display.title = fields[0];
+        if(!display.hasOwnProperty('title') && 
+          fields[fieldDefs.title].length > 0) {
+          display.title = fields[fieldDefs.title];
         }
-        if(!display.hasOwnProperty('url') && fields[4].length > 0) {
-          display.url = fields[4];
+        if(!display.hasOwnProperty('url') && fields[fieldDefs.url].length > 0) {
+          display.url = fields[fieldDefs.url];
         }
-        if(!display.hasOwnProperty('note') && fields[5].length > 0) {
-          display.note = fields[5];
+        if(!display.hasOwnProperty('note') && 
+          fields[fieldDefs.publicNote].length > 0) {
+          display.note = fields[fieldDefs.publicNote];
         }
-        // Store username/password combos (may be multiple)
-        display.accounts.push({username: fields[2], password: fields[3]});
+        // For account data and custom fields, store repeated values.
+        if(fields[fieldDefs.username].length > 0) {
+          display.accounts.push({username: fields[fieldDefs.username], 
+            password: fields[fieldDefs.password]});
+        }
+        if(fields[fieldDefs.customName].length > 0) {
+          display.customFields.push({name: fields[fieldDefs.customName], 
+            value: fields[fieldDefs.customValue]});
+        }
       }
     }
 
