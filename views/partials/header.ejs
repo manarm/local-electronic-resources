@@ -1,3 +1,6 @@
+<!-- Set absolute URL for resource access behind proxy -->
+<% const baseURL = 'https://discoweb1-s.library.northwestern.edu/local-electronic-resources' %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+  <link rel="stylesheet" type="text/css" href="<%- baseURL %>/stylesheets/app.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-797260-37"></script>
   <script>
@@ -26,11 +29,11 @@
           </div>
           <div class="links col-9">
             <ul class="float-right">
-              <li><a href="https://www.library.northwestern.edu/visit/hours/index.html"><img src="/images/clock.svg" alt="hours" width="12px">Hours</a></li>
-              <li><a href="https://www.library.northwestern.edu/research/ask-us/index.html"><img src="/images/chat.svg" alt="chat" width="12px">Ask Us</a></li>
-              <li><a href="https://search.library.northwestern.edu/primo-explore/account?vid=NULVNEW&lang=en_US"><img src="/images/user.svg" alt="your account" width="12px">Your Account</a></li>
-              <li><a href="https://www.library.northwestern.edu/about/support/index.html"><img src="/images/present.svg" alt="support us" width="12px">Support Us</a></li>
-              <li>Information for <img src="/images/arrow.png" alt="more info for">
+              <li><a href="https://www.library.northwestern.edu/visit/hours/index.html"><img src="<%- baseURL %>/images/clock.svg" alt="hours" width="12px">Hours</a></li>
+              <li><a href="https://www.library.northwestern.edu/research/ask-us/index.html"><img src="<%- baseURL %>/images/chat.svg" alt="chat" width="12px">Ask Us</a></li>
+              <li><a href="https://search.library.northwestern.edu/primo-explore/account?vid=NULVNEW&lang=en_US"><img src="<%- baseURL %>/images/user.svg" alt="your account" width="12px">Your Account</a></li>
+              <li><a href="https://www.library.northwestern.edu/about/support/index.html"><img src="<%- baseURL %>/images/present.svg" alt="support us" width="12px">Support Us</a></li>
+              <li>Information for <img src="<%- baseURL %>/images/arrow.png" alt="more info for">
                 <ul>
                   <li><a href="https://www.library.northwestern.edu/undergraduate.html">Undergraduate students</a></li>
                   <li><a href="https://www.library.northwestern.edu/graduate.html">Graduate students</a></li> 
