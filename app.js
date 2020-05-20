@@ -30,30 +30,6 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// Middleware to whitelist IPs.
-// FIXME off for staging server, which is already firewalled.
-/*
-const data = fs.readFileSync('data/ip_whitelist.txt', 'utf-8');
-const whitelist = data.split('\n')
-  .map(line => line.trim())
-  .filter(line => line && line.substring(0,1) != '#');
-app.use(function(req, res, next) {
-  var ip = req.ip || 
-          req.headers['x-forwarded-for'] || 
-          req.connection.remoteAddress || 
-          req.socket.remoteAddress ||
-          req.connection.socket.remoteAddress;
-  if (whitelist.includes(ip)) {
-    next();
-  } else {
-    // TODO: create "no access" page w. ezproxy link.
-    // This will return a blank page.
-    res.end();
-  }
-});
-console.log('IP whitelist configured: ' + whitelist);
-*/
-
 // Mount routers.
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/document'));
