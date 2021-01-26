@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "NU Library webpage for locally held resources",
   "author": {
-    "name" : "Mitchell Manar",
-    "email" : "mitchell.manar@northwestern.edu"
+    "name": "Mitchell Manar",
+    "email": "mitchell.manar@northwestern.edu"
   },
   "license": "ISC",
   "private": true,
-  "main" : "app.js",
+  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www"
   },
